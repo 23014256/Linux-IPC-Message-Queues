@@ -92,8 +92,10 @@ int main()
 
 ## OUTPUT
 <img width="1184" height="864" alt="Screenshot 2025-11-26 134333" src="https://github.com/user-attachments/assets/7dc4b82c-24da-437a-9274-6d621a6594c0" />
-![Uploading Screenshot 2025-11-26 134209.png…]()
-![Uploading Screenshot 2025-11-26 134444.png…]()
+<img width="1184" height="864" alt="Screenshot 2025-11-26 134209" src="https://github.com/user-attachments/assets/ec094d47-08b9-4f4e-bc1c-031f2ae1cc44" />
+<img width="2048" height="512" alt="Screenshot 2025-11-26 134444" src="https://github.com/user-attachments/assets/65f01355-7391-4559-8ffd-a59fabb0811b" />
+
+
 
 
 # RESULT:
