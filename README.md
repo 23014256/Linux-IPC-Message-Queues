@@ -2,7 +2,6 @@
 Linux IPC-Message Queues
 
 # AIM:
-
 To write a C program that receives a message from message queue and display them
 
 # DESIGN STEPS:
@@ -22,13 +21,15 @@ Execute the C Program for the desired output.
 # PROGRAM:
 
 ## C program that receives a message from message queue and display them
-```
-// writer process
+
+Writer.c
+
+```c
+// C Program for Message Queue (Writer Process) 
 #include <stdio.h> 
 #include <sys/ipc.h> 
 #include <sys/msg.h> 
-#include <string.h>
-#include <stdlib.h>
+
 // structure for message queue 
 struct mesg_buffer { 
 	long mesg_type; 
@@ -36,25 +37,27 @@ struct mesg_buffer {
 } message; 
 int main() 
 { 	key_t key; 
-	int msgid; 
-
+	int msgid;
+    // ftok to generate unique key 
 	key = ftok("progfile", 65); 
-
-
+	// msgget creates a message queue 
+	// and returns identifier 
 	msgid = msgget(key, 0666 | IPC_CREAT); 
 	message.mesg_type = 1; 
 	printf("Write Data : "); 
-scanf("%s",message.mesg_text);
-
+	gets(message.mesg_text); 
+	// msgsnd to send message 
 	msgsnd(msgid, &message, sizeof(message), 0); 
-
+	// display the message 
 	printf("Data send is : %s \n", message.mesg_text); 
 	return 0; 
-} 
+}
+```
 
+Reader.c
 
-// C Program for Message Queue (reader Process) 
-
+```c
+// C Program for Message Queue (Reader Process)
 #include <stdio.h>
 #include <sys/ipc.h>
 #include <sys/msg.h>
@@ -68,7 +71,7 @@ int main()
 {
 	key_t key;
 	int msgid;
-// ftok to generate unique key
+    	// ftok to generate unique key
 	key = ftok("progfile", 65);
 	// msgget creates a message queue
 	// and returns identifier
@@ -85,11 +88,13 @@ int main()
 }
 ```
 
-## OUTPUT:
 
-![image](https://github.com/22008686/Linux-IPC-Message-Queues/assets/118916413/764f5e2c-7010-4a65-ba2c-850d8e1ded34)
+
+## OUTPUT
+<img width="1184" height="864" alt="Screenshot 2025-11-26 134333" src="https://github.com/user-attachments/assets/7dc4b82c-24da-437a-9274-6d621a6594c0" />
+![Uploading Screenshot 2025-11-26 134209.png…]()
+![Uploading Screenshot 2025-11-26 134444.png…]()
 
 
 # RESULT:
-
 The programs are executed successfully.
